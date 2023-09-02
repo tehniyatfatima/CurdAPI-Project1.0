@@ -1,40 +1,23 @@
 const express = require('express');
 const router = express.Router();
+const {createUser, getUser, getUsers, deleteUser, updateUser} = require('../Controllers/user.js')
 
-const users= [
-    {
-        id: 114,
-        firstname: "Tehniyat",
-        lastname: "Fatima"
-        
-    },
-
-    {
-        id: 116,
-        firstname: "Hassan",
-        lastname: "Khan"
-    },
-
-    
-    {
-        id: 118,
-        firstname: "Faisal",
-        lastname: "Asif"
-    },
-]
 
 // get all users
-router.get('/', (req,res) =>{
-    res.send(users)
+router.get('/', getUsers);
 
-});
+// get route for one specific user
+router.get("/:id", getUser)
 
 //post user
-router.post('/', (req,res) =>{
-    const user = req.body
-    users.push(user)
-    res.send("new record added to database")
-});
+router.post('/',  createUser);
+
+// delete Route
+
+router.delete("/:id" ,deleteUser)
+
+// Patch Route 
+router.patch("/:id", updateUser )
 
 
 module.exports = router;

@@ -11,19 +11,8 @@ app.use(express.json());
 app.use('/users', userRoutes);
 
 
-app.get("/test", (req,res) =>{
-  
-  res.send("we are testing")
 
-})
-
-
-app.get("/", (req, res) => {
-  res.send(" hello tehniyat Fatima");
-  console.log("server is runing");
-});
-
-
+// app is listening
 app.listen(PORT, () => {
   console.log(`Server is Running on port http://localhost:${PORT}`);
 });
